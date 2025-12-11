@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7mz Services | Expert en Solutions Digitales & Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #5b21b6;
+            --secondary: #06d6a0;
+            --accent: #ff9e00;
+            --accent-red: #ef476f;
+            --dark: #1a1a2e;
+            --darker: #0f0f1e;
+            --light: #f8f9ff;
+            --gray: #6b7280;
+            --gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            --gradient-gaming: linear-gradient(135deg, #ff9e00 0%, #ff5400 100%);
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 36px;
+        }
+
+        .logo span {
+            color: var(--dark);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 26px;
+            background: none;
+            border: none;
+            color: var(--dark);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8eaff 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            top: -300px;
+            right: -200px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 158, 0, 0.1) 0%, rgba(255, 84, 0, 0.1) 100%);
+            bottom: -200px;
+            left: -150px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(124, 58, 237, 0.2);
+            transform: perspective(1000px) rotateY(-15deg);
+            transition: transform 0.8s ease;
+            border: 8px solid white;
+        }
+
+        .hero-image img:hover {
+            transform: perspective(1000px) rotateY(5deg);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h2::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 700px;
+            line-height: 1.8;
+            padding-right: 20px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0) 100%);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-gaming);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Présentation Section */
+        .presentation {
+            padding: 120px 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .presentation-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .presentation-text {
+            flex: 1;
+        }
+
+        .presentation-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .presentation-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: rotate(-3deg);
+            transition: transform 0.5s ease;
+        }
+
+        .presentation-image img:hover {
+            transform: rotate(0deg);
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--darker);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 5px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 0;
+            border-radius: 5px;
+        }
+
+        .presentation-text p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .qualities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .quality-item {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            padding: 15px 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .quality-item i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .quality-item span {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+            z-index: 2;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(124, 58, 237, 0.15);
+        }
+
+        .service-image {
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            background: var(--gradient);
+            z-index: 3;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--darker);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            flex-grow: 1;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .service-features li {
+            margin-bottom: 12px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .service-features li i {
+            color: var(--secondary);
+            margin-right: 12px;
+            font-size: 16px;
+            min-width: 20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, rgba(124, 58, 237, 0) 70%);
+            top: -250px;
+            right: -250px;
+        }
+
+        .contact::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 158, 0, 0.2) 0%, rgba(255, 158, 0, 0) 70%);
+            bottom: -200px;
+            left: -200px;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, #fff 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
+            top: 0;
+            left: -100%;
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+
+        .contact-card:hover::before {
+            left: 0;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: white;
+            background: var(--gradient);
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.4);
+            transition: all 0.5s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: rotateY(360deg) scale(1.1);
+            background: var(--gradient-gaming);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .contact-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-link:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col p {
+            color: #b0b7c3;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0b7c3;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+
+        /* Animation classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .float-animation {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotateY(-15deg); }
+            50% { transform: translateY(-25px) rotateY(-10deg); }
+            100% { transform: translateY(0px) rotateY(-15deg); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(124, 58, 237, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+        }
+        
+        .rotate-animation {
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content, .presentation-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-image img {
+                transform: perspective(1000px) rotateY(0deg);
+                max-width: 80%;
+            }
+            
+            .presentation-image img {
+                max-width: 80%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 30px 0;
+                transform: translateX(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+                min-height: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-card {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .quality-item {
+                min-width: 100%;
+            }
+            
+            .contact h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-crown"></i> 7mz <span>Services</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#presentation">Présentation</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" class="cta-button">Contact Rapide</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="animate-on-scroll">7mz Services<br>Excellence Digitale & Gaming</h1>
+                    <h2 class="animate-on-scroll">Votre Expert Multiservices de Confiance</h2>
+                    <p class="animate-on-scroll">
+                        Je m'appelle <span class="highlight">7mz</span> et je mets à votre disposition mon expertise dans <span class="highlight">9 domaines spécialisés</span> pour répondre à tous vos besoins digitaux et gaming. 
+                        Avec une approche professionnelle, je garantis <span class="highlight">fiabilité, qualité et résultats concrets</span> pour chaque projet.
+                    </p>
+                    <p class="animate-on-scroll">
+                        Que vous ayez besoin d'un <span class="highlight">site web percutant</span>, d'un <span class="highlight">logo unique</span>, d'une <span class="highlight">vidéo professionnelle</span>, ou d'une <span class="highlight">stratégie gaming gagnante</span>, 
+                        je vous accompagne avec sérieux et engagement.
+                    </p>
+                    <a href="#services" class="cta-button animate-on-scroll pulse-animation">
+                        <i class="fas fa-gem"></i> Découvrir Mes Services
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="7mz Services" class="float-animation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Présentation Section -->
+    <section class="presentation" id="presentation">
+        <div class="container">
+
+                <div class="presentation-text animate-on-scroll">
+                    <div class="section-title">
+                        <h2>Pourquoi Me Choisir ?</h2>
+                    </div>
+                    <p>
+                        Avec des années d'expérience dans le digital et le gaming, je combine <strong>créativité, expertise technique et sens stratégique</strong> pour livrer des résultats qui dépassent les attentes.
+                    </p>
+                    <p>
+                        Mon engagement : <strong>qualité irréprochable, délais respectés et communication transparente</strong>. Chaque projet est traité avec le plus grand sérieux, qu'il s'agisse d'une création graphique ou d'une stratégie de trading.
+                    </p>
+                    <p>
+                        Je m'adapte à vos besoins spécifiques et vous propose des solutions <strong>sur mesure, innovantes et efficaces</strong>. Votre satisfaction est ma priorité absolue.
+                    </p>
+                    
+                    <div class="qualities">
+                        <div class="quality-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Fiabilité à 100%</span>
+                        </div>
+                        <div class="quality-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Rapidité d'exécution</span>
+                        </div>
+                        <div class="quality-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Confidentialité assurée</span>
+                        </div>
+                        <div class="quality-item">
+                            <i class="fas fa-star"></i>
+                            <span>Qualité premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Mes Services Expertisés</h2>
+                <p style="font-size: 1.2rem; color: var(--gray); max-width: 800px; margin: 0 auto;">9 services spécialisés pour répondre à tous vos besoins digitaux et gaming</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://www.digitalschool.paris/wp-content/uploads/2022/12/Developpeur-Web.jpg" alt="Création de Site Web">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <h3>Création de Sites Web</h3>
+                    <p>Sites vitrines, e-commerce, portfolios et applications web sur mesure. Design responsive, optimisation SEO et performances optimales.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Design moderne & responsive</li>
+                        <li><i class="fas fa-check"></i> Optimisation SEO intégrale</li>
+                        <li><i class="fas fa-check"></i> E-commerce (Shopify, WooCommerce)</li>
+                        <li><i class="fas fa-check"></i> Maintenance & support continu</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1613909207039-6b173b755cc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Création de Logos">
+                        <div class="service-icon">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                    </div>
+                    <h3>Création de Logos</h3>
+                    <p>Logos uniques et mémorables qui représentent parfaitement votre identité. Design professionnel adapté à tous supports.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Logo sur mesure</li>
+                        <li><i class="fas fa-check"></i> Charte graphique complète</li>
+                        <li><i class="fas fa-check"></i> Formats vectoriels</li>
+                        <li><i class="fas fa-check"></i> Plusieurs propositions</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montage Vidéo">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                    </div>
+                    <h3>Montage Vidéo Professionnel</h3>
+                    <p>Création de vidéos engageantes pour réseaux sociaux, publicités, présentations et événements. Effets spéciaux et motion design.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Montage & effets spéciaux</li>
+                        <li><i class="fas fa-check"></i> Motion design & animations</li>
+                        <li><i class="fas fa-check"></i> Vidéos pour réseaux sociaux</li>
+                        <li><i class="fas fa-check"></i> Publicités vidéo percutantes</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://img.freepik.com/free-vector/design-process-concept-landing-page_23-2148313670.jpg?semt=ais_hybrid&w=740&q=80" alt="Design Photoshop">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                    <h3>Design Photoshop</h3>
+                    <p>Créations graphiques professionnelles: bannières, maquettes, retouches photo, designs publicitaires et visuels sociaux.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Bannières publicitaires</li>
+                        <li><i class="fas fa-check"></i> Retouches photo pro</li>
+                        <li><i class="fas fa-check"></i> Maquettes UI/UX</li>
+                        <li><i class="fas fa-check"></i> Visuels réseaux sociaux</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modification avec IA">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                    <h3>Modification avec IA</h3>
+                    <p>Utilisation d'intelligence artificielle pour améliorer, transformer et optimiser vos images, textes et contenus multimédias.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Amélioration d'images IA</li>
+                        <li><i class="fas fa-check"></i> Génération de contenu</li>
+                        <li><i class="fas fa-check"></i> Restauration de photos</li>
+                        <li><i class="fas fa-check"></i> Effets spéciaux IA</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://cdn.sanity.io/images/tdrhge4k/stake-com-production/8b71de9580e863bf7cd4bb2e2a0145f777106f57-2400x1260.jpg" alt="Shop sur Stake">
+                        <div class="service-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                    </div>
+                    <h3>Shop sur Stake</h3>
+                    <p>Configuration, optimisation et gestion de votre compte Stake. Stratégies pour maximiser vos gains et expérience gaming.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Configuration de compte</li>
+                        <li><i class="fas fa-check"></i> Stratégies gagnantes</li>
+                        <li><i class="fas fa-check"></i> Gestion de bankroll</li>
+                        <li><i class="fas fa-check"></i> Conseils personnalisés</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://public.bnbstatic.com/image/cms/blog/20240207/37b2b01f-6115-41fa-9166-c987b0cc8bd3.jpg" alt="Shop sur Binance">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <h3>Shop sur Binance</h3>
+                    <p>Configuration et optimisation de votre compte Binance. Stratégies de trading, automatisation et analyse de marché.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Configuration sécurisée</li>
+                        <li><i class="fas fa-check"></i> Stratégies trading</li>
+                        <li><i class="fas fa-check"></i> Automatisation transactions</li>
+                        <li><i class="fas fa-check"></i> Analyse marché détaillée</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://inkhive.com/storage/2024/08/Linebet.png" alt="Shop sur Linebet">
+                        <div class="service-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                    </div>
+                    <h3>Shop sur Linebet</h3>
+                    <p>Optimisation de votre expérience Linebet avec des stratégies adaptées et des conseils pour maximiser vos opportunités.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Setup personnalisé</li>
+                        <li><i class="fas fa-check"></i> Analyse des cotes</li>
+                        <li><i class="fas fa-check"></i> Gestion des paris</li>
+                        <li><i class="fas fa-check"></i> Support technique</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 9 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <img src="https://igamingexpress.com/wp-content/uploads/2024/12/stake-owner.webp" alt="Formation Gambling sur Stake">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <h3>Formation Gambling sur Stake</h3>
+                    <p>Formations complètes pour maîtriser le gambling sur Stake. De débutant à expert, apprenez les stratégies gagnantes.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Cours personnalisés</li>
+                        <li><i class="fas fa-check"></i> Stratégies avancées</li>
+                        <li><i class="fas fa-check"></i> Gestion de risque</li>
+                        <li><i class="fas fa-check"></i> Support continu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="animate-on-scroll">Contactez-Moi Directement</h2>
+            <div class="contact-container">
+                <div class="contact-cards">
+                    <!-- WhatsApp -->
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Contact rapide et direct pour discuter de votre projet</p>
+                        <a href="https://wa.me/33612345678" target="_blank" class="contact-link pulse-animation">
+                            <i class="fab fa-whatsapp"></i> Écrire sur WhatsApp
+                        </a>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Professionnel</h3>
+                        <p>Pour les demandes détaillées et les collaborations</p>
+                        <a href="mailto:contact@7mz-services.com" class="contact-link">
+                            <i class="fas fa-paper-plane"></i> Envoyer un Email
+                        </a>
+                    </div>
+                    
+                    <!-- Instagram -->
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3>Instagram</h3>
+                        <p>Découvrez mes réalisations et mon portfolio</p>
+                        <a href="https://instagram.com/7mz_services" target="_blank" class="contact-link">
+                            <i class="fab fa-instagram"></i> Voir mes Réalisations
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="#home" class="cta-button animate-on-scroll">
+                    <i class="fas fa-rocket"></i> Retour à l'Accueil
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>7mz Services</h3>
+                    <p>Expert en solutions digitales et gaming. Des services de qualité avec fiabilité et professionnalisme.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/212682530523" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:contact@7mz-services.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://instagram.com/7mz_services" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services Populaires</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Création de Sites Web</a></li>
+                        <li><a href="#services">Création de Logos</a></li>
+                        <li><a href="#services">Montage Vidéo</a></li>
+                        <li><a href="#services">Formation Gambling</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Liens Utiles</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#presentation">Présentation</a></li>
+                        <li><a href="#services">Tous les Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Horaires</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-clock" style="color: var(--primary); margin-right: 10px;"></i> Lun-Dim: 9h-23h</li>
+                        <li><i class="fas fa-headset" style="color: var(--primary); margin-right: 10px;"></i> Support 7j/7</li>
+                        <li><i class="fas fa-bolt" style="color: var(--primary); margin-right: 10px;"></i> Réponse sous 1h</li>
+                        <li><i class="fas fa-globe" style="color: var(--primary); margin-right: 10px;"></i> International</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 7mz Services. Tous droits réservés. | Conçu avec passion par 7mz</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Scroll animation
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const checkScroll = () => {
+            const triggerBottom = window.innerHeight * 0.85;
+            
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < triggerBottom) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', checkScroll);
+        // Initial check
+        checkScroll();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact card animations
+        const contactCards = document.querySelectorAll('.contact-card');
+        contactCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+        
+        // Service cards hover effect enhancement
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '5';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+        
+        // Add floating effect to contact icons
+        const contactIcons = document.querySelectorAll('.contact-icon');
+        contactIcons.forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
